@@ -28,4 +28,4 @@ CREATE USER 'Bamazon_User'@'localhost' IDENTIFIED BY 'password';
 ALTER USER 'Bamazon_User'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 GRANT ALL PRIVILEGES ON * . * TO 'Bamazon_User'@'localhost';
         
-SELECT * FROM products
+SELECT * FROM products;
