@@ -22,6 +22,10 @@ VALUES ("Xbox One S", "Video Games", 199.99, 200),
         ("Frito Lay - Cheetos (12pk)", "FRESH", 7.49, 9123),
         ("Pringles (4pk)", "FRESH", 6.49, 8239),
         ("Corsair Void PRO RGB Headset", "Computers/Laptops/Accessories", 44.99, 932),
-        ("Acer Nitro 5", "Computers/Laptops/Accessories", 429.99, 482);
+        ("Acer Nitro 5", "Computers/Laptops/Accessories", 429.99, 482);        
+
+CREATE USER 'Bamazon_User'@'localhost' IDENTIFIED BY 'password';
+ALTER USER 'Bamazon_User'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'Bamazon_User'@'localhost';
         
 SELECT * FROM products
