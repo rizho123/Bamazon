@@ -20,6 +20,27 @@ connect.connect(function (error) {
     if (error) throw error
 })
 
+var menuList = {
+    "Add a New Product" : addProduct,
+    "View Products for Sale": viewProducts,
+    "Add to Inventory": addInventory,
+    "View Low Inventory": viewLowInventory,
+    "Exit Program": exit
+};
+
+function menu() {
+    inquirer.prompt([
+        {
+            "type" : "list",
+            "name" : "menuOptions",
+            "message" : "Select an option:",
+            "choices": Object.keys(menuList)
+        }
+    ]).then(response => {
+        menuList[response.menuOptions]();
+    })
+}
+
 function start () {
     figlet("Bamazon", {
         font: "alligator2",
@@ -34,10 +55,16 @@ function start () {
         console.log(chalk.keyword('orange')(data))
         console.log(chalk.bgHex('FFB300').hex('FFFFFF')("--------------------------------" + chalk.bgHex("FFFFFF").black("[MANAGER-CONSOLE]") + "--------------------------------"))
         console.log(chalk.hex('FFB300')("----------------------------------[" + chalk.bgHex('FFB300').hex('FFFFFF')("Richard Zhou") + "]---------------------------------\n"))
+        menu();
 
 
 
 })
+}
+
+function exit() {
+    console.log(chalk.green.bgGrey("Exited the console."))
+    connect.end();
 }
 
 start ();
