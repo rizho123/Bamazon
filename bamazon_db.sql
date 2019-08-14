@@ -13,7 +13,7 @@ CREATE TABLE products (
     PRIMARY KEY (item_id)
 );
 
-INSERT INTO products (product_name, department_name, price, stock_quantity)
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
 VALUES ("Xbox One S", "Video Games", 199.99, 200),
 		("Resident Evil 2 (2019)", "Video Games", 24.99, 50),
         ("Samsung Gear S3 Frontier", "Electronics", 179.99, 35),
@@ -29,3 +29,6 @@ ALTER USER 'Bamazon_User'@'localhost' IDENTIFIED WITH mysql_native_password BY '
 GRANT ALL PRIVILEGES ON * . * TO 'Bamazon_User'@'localhost';
         
 SELECT * FROM products;
+SELECT DISTINCT department_name FROM products;
+
+DELETE FROM products WHERE product_name="Test Item Please Delete";
